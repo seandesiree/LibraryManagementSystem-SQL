@@ -19,11 +19,12 @@ class Author:
                 print("Error in connecting to the database. ")
 
 
-    def add_author(self, name):
+    def add_authors(self, name, biography):
         try:
             cursor = conn.cursor()
-            query = "INSERT INTO books (id, title, author_id, isbn, publication_date, availability) VALUES (%s, %s, %s, %s, %s, %s)"
-            cursor.execute(query, (name))
+            query = "INSERT INTO authors (name, biography) VALUES (%s, %s)"
+            # query = "INSERT INTO books (id, title, author_id, isbn, publication_date, availability) VALUES (%s, %s, %s, %s, %s, %s)"
+            cursor.execute(query, (name, biography))
             conn.commit()
             print("New author has been added successfully.")
         except Exception as e:

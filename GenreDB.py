@@ -2,11 +2,11 @@ from DB import conn
 
 
 class Genre:
-    def add_genre(self, genre):
+    def add_genre(self, name, description):
         try:
             cursor = conn.cursor()
-            query = "INSERT INTO genre (genre) VALUES (%s)"
-            cursor.execute(query, (genre))
+            query = "INSERT INTO genre (name, description) VALUES (%s, %s)"
+            cursor.execute(query, (name, description))
             conn.commit()
             print("New genre has been added successfully.")
         except Exception as e:
