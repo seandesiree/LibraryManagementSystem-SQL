@@ -2,11 +2,11 @@ from DB import conn
 
 
 class Library:
-    def add_book(self, id, title, author_id, isbn, publication_date, availability):
+    def add_book(self, title, author_id, isbn, publication_date, availability):
         try:
             cursor = conn.cursor()
-            query = "INSERT INTO books (id, title, author_id, isbn, publication_date, availability) VALUES (%s, %s, %s, %s, %s, %s)"
-            cursor.execute(query, (id, title, author_id, isbn, publication_date, availability))
+            query = "INSERT INTO books (title, author_id, isbn, publication_date, availability) VALUES (%s, %s, %s, %s, %s)"
+            cursor.execute(query, (title, author_id, isbn, publication_date, availability))
             conn.commit()
             print("New book has been added successfully.")
         except Exception as e:

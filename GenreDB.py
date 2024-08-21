@@ -5,7 +5,7 @@ class Genre:
     def add_genre(self, name, description):
         try:
             cursor = conn.cursor()
-            query = "INSERT INTO genre (name, description) VALUES (%s, %s)"
+            query = "INSERT INTO genres (name, description) VALUES (%s, %s)"
             cursor.execute(query, (name, description))
             conn.commit()
             print("New genre has been added successfully.")

@@ -2,11 +2,11 @@ from DB import conn
 
 
 class User:
-    def add_user(self, user):
+    def add_user(self, name, library_id):
         try:
             cursor = conn.cursor()
-            query = "INSERT INTO user (user) VALUES (%s)"
-            cursor.execute(query, (user))
+            query = "INSERT INTO users (name, library_id) VALUES (%s, %s)"
+            cursor.execute(query, (name, library_id))
             conn.commit()
             print("New user has been added successfully.")
         except Exception as e:
